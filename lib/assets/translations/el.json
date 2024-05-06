@@ -1,0 +1,23 @@
+{
+  "welcome": "Καλώς ορίσατε",
+  "emergency_numbers": "Αριθμοί Έκτακτης Ανάγκης",
+  "share_location": "Κοινοποίηση της τοποθεσίας μου",
+  "select_country": "Επιλογή Χώρας",
+  "search": "Αναζήτηση",
+  "or": "Ή",
+  "use_my_location": "Χρήση της τοποθεσίας μου",
+  "language": "Γλώσσα",
+  "english": "Αγγλικά",
+  "greek": "Ελληνικά",
+  "russian": "Ρωσικά",
+  "emergency_center_number": "Αριθμός Κέντρου Έκτακτης Ανάγκης",
+  "police": "Αστυνομία",
+  "ambulance": "Ασθενοφόρο",
+  "fire": "Πυροσβεστική",
+  "traffic" : "Κίνηση",
+  "share": "Κοινοποίηση",
+  "theme": "Θέμα",
+  "terms_and_conditions": "Όροι και Προϋποθέσεις",
+  "about": "Σχετικά",
+  "settings": "Ρυθμίσεις"
+}

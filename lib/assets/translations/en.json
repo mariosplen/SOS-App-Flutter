@@ -1,0 +1,23 @@
+{
+  "welcome": "Welcome",
+  "emergency_numbers": "Emergency Numbers",
+  "share_location": "Share My Location",
+  "select_country": "Select Country",
+  "search": "Search",
+  "or": "Or",
+  "use_my_location": "Use My Location",
+  "language": "Language",
+  "english": "English",
+  "greek": "Greek",
+  "russian": "Russian",
+  "emergency_center_number": "Emergency Center Number",
+  "police": "Police",
+  "ambulance": "Ambulance",
+  "fire": "Fire",
+  "traffic" : "Traffic",
+  "share": "Share",
+  "theme": "Theme",
+  "terms_and_conditions": "Terms and Conditions",
+  "about": "About",
+  "settings": "Settings"
+}

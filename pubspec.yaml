@@ -1,0 +1,76 @@
+name: sos
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+environment:
+  sdk: '>=3.3.1 <4.0.0'
+
+
+# To generate Localization keys run:
+# flutter pub run easy_localization:generate -S "lib/assets/translations" -O "lib/gen/translations" -o "locale_keys.g.dart" -f keys
+# flutter pub run easy_localization:generate -S "lib/assets/translations" -O "lib/gen/translations"
+
+# To generate native splash screen run:
+# flutter clean && flutter pub get && flutter pub run flutter_native_splash:create
+
+# To generate assets run:
+# dart run build_runner build
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  country_flags: ^2.2.0
+  equatable: ^2.0.5
+  flutter_bloc: ^8.1.5
+  geolocator: ^11.0.0
+  geocoding: ^3.0.0
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.1
+  flutter_svg: ^2.0.10+1
+  flutter_native_splash: ^2.4.0
+  shared_preferences: ^2.2.3
+  go_router: ^14.0.2
+  bloc_event_transformers: ^1.0.1
+  share_plus: ^9.0.0
+  easy_localization: ^3.0.6
+  flutter_localized_locales: ^2.0.5
+  top_snackbar_flutter: ^3.1.0
+  country_data: ^0.0.2
+
+
+dev_dependencies:
+  flutter_lints: ^3.0.2
+  build_runner: ^2.4.9
+  flutter_gen_runner: ^5.4.0
+  flutter_launcher_icons: ^0.13.1
+
+
+flutter_gen:
+  integrations:
+    flutter_svg: true
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - lib/assets/images/
+    - lib/assets/icons/
+    - lib/assets/data/
+    - lib/assets/translations/
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: lib/assets/fonts/Roboto/Roboto-Regular.ttf
+
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "lib/assets/images/logo.png"
+  min_sdk_android: 20
+
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: lib/assets/images/logo.png
