@@ -39,7 +39,7 @@ class CountriesPage extends StatelessWidget {
                 return const Center(child: LoadingIndicator());
               } else {
                 final bloc = context.read<CountriesBloc>();
-                final countries = state.countries;
+                final countries = bloc.getShownCountries();
                 return Padding(
                   padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
                   child: Column(

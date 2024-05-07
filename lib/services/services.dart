@@ -7,8 +7,8 @@ import 'package:sos/models/country_model.dart';
 class ApiService {
   Future<List<Country>> getCountries() async {
     try {
-      final raw = await rootBundle.loadString(Assets.lib.assets.data.countries);
-      final json = raw.replaceAll(RegExp(r'\s'), '');
+      final json =
+          await rootBundle.loadString(Assets.lib.assets.data.countries);
 
       final List<dynamic> listOfMaps =
           jsonDecode(json).cast<Map<String, dynamic>>();
