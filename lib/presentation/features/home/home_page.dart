@@ -5,6 +5,7 @@ import 'package:sos/blocs/settings/settings_bloc.dart';
 import 'package:sos/gen/assets.gen.dart';
 import 'package:sos/presentation/features/home/terms_modal.dart';
 import 'package:sos/presentation/features/home/widgets/home_button.dart';
+import 'package:sos/presentation/shared/re_text.dart';
 import 'package:sos/theme/app_palette.dart';
 
 class HomePage extends StatelessWidget {
@@ -26,20 +27,21 @@ class HomePage extends StatelessWidget {
                 actions: [
                   IconButton(
                     onPressed: () => context.push('/settings'),
-                    icon: const Icon(Icons.settings),
+                    icon: const Icon(
+                      Icons.settings,
+                      color: AppPalette.white,
+                    ),
                   ),
                 ],
               ),
               body: Stack(
                 children: [
-                  Container(
-                    color: Colors.blue,
-                    height: 160,
+                  Assets.lib.assets.images.bgTop.image(
                     width: double.infinity,
                   ),
                   SafeArea(
                     child: Padding(
-                      padding: const EdgeInsets.all(40.0),
+                      padding: const EdgeInsets.fromLTRB(16, 36, 16, 0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         mainAxisSize: MainAxisSize.min,
@@ -48,10 +50,11 @@ class HomePage extends StatelessWidget {
                           Column(
                             children: [
                               Container(
-                                  color: Colors.yellow,
-                                  height: 100,
-                                  width: 100),
-                              const Text(
+                                color: Colors.yellow,
+                                height: 100,
+                                width: 100,
+                              ),
+                              const ReText(
                                 'Welcome',
                               ),
                             ],
@@ -60,13 +63,13 @@ class HomePage extends StatelessWidget {
                           HomeButton(
                             text: "Emergency Numbers",
                             onPressed: () => context.push('/countries'),
-                            icon: Assets.lib.assets.images.logo,
+                            icon: Assets.lib.assets.images.call,
                           ),
                           const SizedBox(height: 20),
                           HomeButton(
                             text: "Share My Location",
                             onPressed: () => context.push('/map'),
-                            icon: Assets.lib.assets.images.logo,
+                            icon: Assets.lib.assets.images.location,
                           ),
                         ],
                       ),

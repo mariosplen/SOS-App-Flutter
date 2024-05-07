@@ -50,11 +50,34 @@ class $LibAssetsIconsGen {
 class $LibAssetsImagesGen {
   const $LibAssetsImagesGen();
 
+  /// File path: lib/assets/images/ambulance.png
+  AssetGenImage get ambulance =>
+      const AssetGenImage('lib/assets/images/ambulance.png');
+
+  /// File path: lib/assets/images/bg_top.png
+  AssetGenImage get bgTop =>
+      const AssetGenImage('lib/assets/images/bg_top.png');
+
+  /// File path: lib/assets/images/call.png
+  AssetGenImage get call => const AssetGenImage('lib/assets/images/call.png');
+
+  /// File path: lib/assets/images/fire.png
+  AssetGenImage get fire => const AssetGenImage('lib/assets/images/fire.png');
+
+  /// File path: lib/assets/images/location.png
+  AssetGenImage get location =>
+      const AssetGenImage('lib/assets/images/location.png');
+
   /// File path: lib/assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('lib/assets/images/logo.png');
 
+  /// File path: lib/assets/images/police.png
+  AssetGenImage get police =>
+      const AssetGenImage('lib/assets/images/police.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [logo];
+  List<AssetGenImage> get values =>
+      [ambulance, bgTop, call, fire, location, logo, police];
 }
 
 class $LibAssetsTranslationsGen {

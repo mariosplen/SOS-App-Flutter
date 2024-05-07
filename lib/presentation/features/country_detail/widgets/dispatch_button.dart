@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sos/presentation/shared/re_text.dart';
 
 class DispatchButton extends StatelessWidget {
   const DispatchButton(
@@ -20,7 +21,7 @@ class DispatchButton extends StatelessWidget {
             children: [
               ...List.generate(
                 numbers.length,
-                (index) => Text(numbers[index]),
+                (index) => ReText(numbers[index]),
               ),
             ],
           ),

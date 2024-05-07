@@ -62,6 +62,12 @@ flutter:
     - family: Roboto
       fonts:
         - asset: lib/assets/fonts/Roboto/Roboto-Regular.ttf
+          weight: 400
+        - asset: lib/assets/fonts/Roboto/Roboto-Medium.ttf
+          weight: 500
+        - asset: lib/assets/fonts/Roboto/Roboto-Bold.ttf
+          weight: 800
+
 
 
 flutter_launcher_icons:

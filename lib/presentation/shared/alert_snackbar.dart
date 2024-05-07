@@ -6,7 +6,10 @@ import 'package:top_snackbar_flutter/top_snack_bar.dart';
 void showAlertMessageSnackBar(BuildContext context, String message) {
   showTopSnackBar(
     Overlay.of(context),
-    CustomSnackBar.info(message: message),
+    CustomSnackBar.info(
+      message: message,
+      maxLines: 8,
+    ),
   );
 }
 

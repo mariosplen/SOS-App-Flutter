@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sos/blocs/country_detail/country_detail_bloc.dart';
+import 'package:sos/gen/assets.gen.dart';
 import 'package:sos/models/country_model.dart';
 import 'package:sos/presentation/features/country_detail/widgets/dispatch_button.dart';
+import 'package:sos/presentation/features/country_detail/widgets/phone_button.dart';
 import 'package:sos/presentation/shared/alert_snackbar.dart';
 import 'package:sos/presentation/shared/loading_page.dart';
 
@@ -69,11 +71,9 @@ _buildDispatchButton(Country country) {
     return const SizedBox.shrink();
   }
 
-  final countriesDispatchNumbers = country.dispatch;
-
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 100.0),
-    child: DispatchButton(countriesDispatchNumbers),
+    padding: const EdgeInsets.symmetric(horizontal: 70.0),
+    child: DispatchButton(country.dispatch),
   );
 }
 
@@ -87,13 +87,50 @@ _buildPhonesSection(Country country) {
 
   return Column(
     children: [
+      if (country.police.isNotEmpty)
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 9.5),
+          child: PhoneButton(
+            title: 'Police',
+            color: const Color(0xFF5E9DE7),
+            numbers: country.police,
+            onPressed: () {},
+            icon: Assets.lib.assets.images.police,
+          ),
+        ),
       if (country.ambulance.isNotEmpty)
-        _buildPhoneTile('Ambulance', country.ambulance),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 9.5),
+          child: PhoneButton(
+            title: 'Ambulance',
+            color: const Color(0xFF76cc57),
+            numbers: country.ambulance,
+            onPressed: () {},
+            icon: Assets.lib.assets.images.ambulance,
+          ),
+        ),
       if (country.fire.isNotEmpty) //
-        _buildPhoneTile('Fire', country.fire),
-      if (country.police.isNotEmpty) _buildPhoneTile('Police', country.police),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 9.5),
+          child: PhoneButton(
+            title: 'Fire',
+            color: const Color(0xFFF0AC5D),
+            numbers: country.fire,
+            onPressed: () {},
+            icon: Assets.lib.assets.images.fire,
+          ),
+        ),
       if (country.traffic.isNotEmpty)
-        _buildPhoneTile('Traffic', country.traffic),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 9.5),
+          child: PhoneButton(
+            title: 'Traffic',
+            color: const Color(0xFF76cc57),
+            numbers: country.traffic,
+            onPressed: () {},
+            icon: Assets.lib.assets.images.ambulance,
+          ),
+        ),
     ],
   );
 }

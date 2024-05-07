@@ -4,16 +4,20 @@ import 'package:sos/gen/fonts.gen.dart';
 import 'package:sos/presentation/shared/pressable.dart';
 import 'package:sos/presentation/shared/re_text.dart';
 
-class HomeButton extends StatelessWidget {
-  const HomeButton({
-    super.key,
-    required this.text,
+class PhoneButton extends StatelessWidget {
+  const PhoneButton({
+    required this.numbers,
     required this.onPressed,
     required this.icon,
+    required this.color,
+    required this.title,
+    super.key,
   });
-  final String text;
+  final String title;
+  final List<String> numbers;
   final void Function() onPressed;
   final AssetGenImage icon;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -25,19 +29,31 @@ class HomeButton extends StatelessWidget {
         height: 78,
         decoration: BoxDecoration(
           borderRadius: radius,
-          color: const Color(0xFFF0AE61),
+          color: color,
         ),
         child: Stack(
           children: [
             icon.image(
-              opacity: const AlwaysStoppedAnimation(.26),
+              opacity: const AlwaysStoppedAnimation(.19),
               scale: 0.5,
             ),
-            Center(
-              child: ReText(
-                text,
-                style: _textStyle,
-              ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                    numbers.length,
+                    (index) => ReText(
+                      numbers[index],
+                      style: _textStyle,
+                    ),
+                  ),
+                ),
+                ReText(
+                  title,
+                ),
+              ],
             ),
           ],
         ),

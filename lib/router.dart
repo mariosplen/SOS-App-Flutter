@@ -6,7 +6,10 @@ import 'package:sos/presentation/features/country_detail/country_detail_page.dar
 import 'package:sos/presentation/features/home/home_page.dart';
 import 'package:sos/presentation/features/map/map_page.dart';
 import 'package:sos/presentation/features/settings/settings_page.dart';
+import 'package:sos/presentation/features/settings/settings_set/about_page.dart';
 import 'package:sos/presentation/features/settings/settings_set/language_page.dart';
+import 'package:sos/presentation/features/settings/settings_set/terms_page.dart';
+import 'package:sos/presentation/features/settings/settings_set/theme_page.dart';
 
 class AppRouter {
   final router = GoRouter(
@@ -38,28 +41,33 @@ class AppRouter {
       ),
       GoRoute(
         path: "/settings",
-        pageBuilder: (context, state) =>
-            const MaterialPage(child: SettingsPage()),
+        pageBuilder: (context, state) => const MaterialPage(
+          child: SettingsPage(),
+        ),
       ),
       GoRoute(
         path: "/settings/language",
-        pageBuilder: (context, state) =>
-            const MaterialPage(child: LanguagePage()),
+        pageBuilder: (context, state) => const MaterialPage(
+          child: LanguagePage(),
+        ),
       ),
       GoRoute(
         path: "/settings/theme",
-        pageBuilder: (context, state) =>
-            const MaterialPage(child: LanguagePage()),
+        pageBuilder: (context, state) => const MaterialPage(
+          child: ThemePage(),
+        ),
       ),
       GoRoute(
         path: "/settings/about",
-        pageBuilder: (context, state) =>
-            const MaterialPage(child: LanguagePage()),
+        pageBuilder: (context, state) => const MaterialPage(
+          child: AboutPage(),
+        ),
       ),
       GoRoute(
         path: "/settings/terms",
-        pageBuilder: (context, state) =>
-            const MaterialPage(child: LanguagePage()),
+        pageBuilder: (context, state) => const MaterialPage(
+          child: TermsPage(),
+        ),
       ),
     ],
   );
