@@ -58,6 +58,9 @@ class $LibAssetsImagesGen {
   AssetGenImage get bgTop =>
       const AssetGenImage('lib/assets/images/bg_top.png');
 
+  AssetGenImage get countryDetail =>
+      const AssetGenImage('lib/assets/images/country_details.png');
+
   /// File path: lib/assets/images/call.png
   AssetGenImage get call => const AssetGenImage('lib/assets/images/call.png');
 

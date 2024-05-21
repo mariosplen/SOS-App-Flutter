@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:sos/blocs/country_detail/country_detail_bloc.dart';
 import 'package:sos/gen/assets.gen.dart';
 import 'package:sos/models/country_model.dart';
@@ -9,13 +8,14 @@ import 'package:sos/presentation/features/country_detail/widgets/phone_button.da
 import 'package:sos/presentation/shared/alert_snackbar.dart';
 import 'package:sos/presentation/shared/loading_page.dart';
 import 'package:sos/presentation/shared/custom_icon_button.dart';
+import 'package:go_router/go_router.dart';
 
 class CountryDetailPage extends StatelessWidget {
   const CountryDetailPage({
-    this.country,
+    required this.country,
     required this.countries,
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final Country? country;
   final List<Country> countries;
@@ -44,25 +44,43 @@ class CountryDetailPage extends StatelessWidget {
             return const LoadingPage();
           } else {
             return Scaffold(
-              appBar: AppBar(
-                title: Text(state.country?.name ?? 'Country'),
-                actions: [
-                  CustomIconButton(
-                    onPressed: () => context.push('/settings'),
-                    color: const Color.fromARGB(255, 0, 0, 0),
-                  ),
-                ],
-              ),
-              body: SafeArea(
-                child: Column(
+              appBar: PreferredSize(
+                preferredSize: Size.fromHeight(200.0),
+                child: Stack(
                   children: [
-                    _buildDispatchButton(state.country!),
-                    _buildPhonesSection(state.country!),
-                    ElevatedButton(
-                        onPressed: () => context.push('/map'),
-                        child: Text("Show location on map")),
+                    Positioned.fill(
+                      child: Assets.lib.assets.images.countryDetail.image(
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    AppBar(
+                      backgroundColor: Colors.transparent,
+                      title: Text(state.country?.name ?? 'Country'),
+                      actions: [
+                        CustomIconButton(
+                          onPressed: () => context.push('/settings'),
+                          color: Color.fromARGB(255, 255, 255, 255),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
+              ),
+              body: Stack(
+                children: [
+                  SafeArea(
+                    child: Column(
+                      children: [
+                        _buildDispatchButton(state.country!),
+                        _buildPhonesSection(state.country!),
+                        ElevatedButton(
+                          onPressed: () => context.push('/map'),
+                          child: Text("Show location on map"),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             );
           }
@@ -73,7 +91,7 @@ class CountryDetailPage extends StatelessWidget {
 }
 
 // UI Sections
-_buildDispatchButton(Country country) {
+Widget _buildDispatchButton(Country country) {
   if (country.dispatch.isEmpty) {
     return const SizedBox.shrink();
   }
@@ -84,7 +102,7 @@ _buildDispatchButton(Country country) {
   );
 }
 
-_buildPhonesSection(Country country) {
+Widget _buildPhonesSection(Country country) {
   if (country.ambulance.isEmpty &&
       country.fire.isEmpty &&
       country.police.isEmpty &&
@@ -138,20 +156,6 @@ _buildPhonesSection(Country country) {
             icon: Assets.lib.assets.images.ambulance,
           ),
         ),
-    ],
-  );
-}
-
-_buildPhoneTile(String title, List<String> phones) {
-  return Row(
-    children: [
-      Text(title),
-      Column(
-        children: List.generate(
-          phones.length,
-          (index) => Text(phones[index]),
-        ),
-      ),
     ],
   );
 }
