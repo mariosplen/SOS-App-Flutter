@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sos/blocs/settings/settings_bloc.dart';
 import 'package:sos/gen/assets.gen.dart';
-import 'package:sos/presentation/features/home/terms_modal.dart';
+import 'package:sos/presentation/features/home/widgets/terms_modal.dart';
 import 'package:sos/presentation/features/home/widgets/home_button.dart';
 import 'package:sos/presentation/shared/re_text.dart';
 import 'package:sos/theme/app_palette.dart';
