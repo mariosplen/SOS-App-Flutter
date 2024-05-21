@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
                           Column(
                             children: [
                               Image.asset(
-                                'assets/images/wave.png',
+                                'lib/assets/images/wave.png',
                                 height: 100,
                                 width: 100,
                               ),
