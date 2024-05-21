@@ -10,6 +10,7 @@ import 'package:sos/presentation/features/countries/widgets/search_field.dart';
 import 'package:sos/presentation/features/countries/widgets/use_location_button.dart';
 import 'package:sos/presentation/shared/loading_indicator.dart';
 import 'package:sos/theme/app_palette.dart';
+import 'package:sos/presentation/shared/custom_icon_button.dart';
 
 class CountriesPage extends StatelessWidget {
   const CountriesPage({super.key});
@@ -25,9 +26,9 @@ class CountriesPage extends StatelessWidget {
             style: _titleStyle,
           ),
           actions: [
-            IconButton(
+            CustomIconButton(
               onPressed: () => context.push('/settings'),
-              icon: const Icon(Icons.settings),
+              color: const Color.fromARGB(255, 0, 0, 0),
             ),
           ],
           scrolledUnderElevation: 0,

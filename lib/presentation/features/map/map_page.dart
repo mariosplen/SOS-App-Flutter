@@ -11,6 +11,7 @@ import 'package:sos/presentation/shared/loading_page.dart';
 import 'package:sos/theme/app_palette.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
+import 'package:sos/presentation/shared/custom_icon_button.dart';
 
 class MapPage extends StatelessWidget {
   const MapPage({
@@ -76,9 +77,9 @@ class MapPage extends StatelessWidget {
                 appBar: AppBar(
                   backgroundColor: Colors.transparent,
                   actions: [
-                    IconButton(
+                    CustomIconButton(
                       onPressed: () => context.push('/settings'),
-                      icon: const Icon(Icons.settings),
+                      color: const Color.fromARGB(255, 0, 0, 0),
                     ),
                   ],
                 ),

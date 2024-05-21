@@ -7,6 +7,8 @@ import 'package:sos/presentation/features/home/widgets/terms_modal.dart';
 import 'package:sos/presentation/features/home/widgets/home_button.dart';
 import 'package:sos/presentation/shared/re_text.dart';
 import 'package:sos/theme/app_palette.dart';
+import 'package:sos/lib/presentation/features/text_styles.dart';
+import 'package:sos/presentation/shared/custom_icon_button.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -25,12 +27,9 @@ class HomePage extends StatelessWidget {
               appBar: AppBar(
                 backgroundColor: AppPalette.transparent,
                 actions: [
-                  IconButton(
+                  CustomIconButton(
                     onPressed: () => context.push('/settings'),
-                    icon: const Icon(
-                      Icons.settings,
-                      color: AppPalette.white,
-                    ),
+                    color: AppPalette.white,
                   ),
                 ],
               ),
@@ -49,13 +48,15 @@ class HomePage extends StatelessWidget {
                           const SizedBox(height: 50),
                           Column(
                             children: [
-                              Container(
-                                color: Colors.yellow,
+                              Image.asset(
+                                'assets/images/wave.png',
                                 height: 100,
                                 width: 100,
                               ),
                               const ReText(
                                 'Welcome',
+                                style: AppTextStyles
+                                    .titleStyle, // Use the reusable style
                               ),
                             ],
                           ),

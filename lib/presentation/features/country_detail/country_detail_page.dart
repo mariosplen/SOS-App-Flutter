@@ -8,6 +8,7 @@ import 'package:sos/presentation/features/country_detail/widgets/dispatch_button
 import 'package:sos/presentation/features/country_detail/widgets/phone_button.dart';
 import 'package:sos/presentation/shared/alert_snackbar.dart';
 import 'package:sos/presentation/shared/loading_page.dart';
+import 'package:sos/presentation/shared/custom_icon_button.dart';
 
 class CountryDetailPage extends StatelessWidget {
   const CountryDetailPage({
@@ -45,6 +46,12 @@ class CountryDetailPage extends StatelessWidget {
             return Scaffold(
               appBar: AppBar(
                 title: Text(state.country?.name ?? 'Country'),
+                actions: [
+                  CustomIconButton(
+                    onPressed: () => context.push('/settings'),
+                    color: const Color.fromARGB(255, 0, 0, 0),
+                  ),
+                ],
               ),
               body: SafeArea(
                 child: Column(
