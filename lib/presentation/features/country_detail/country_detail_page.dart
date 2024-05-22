@@ -55,7 +55,7 @@ class CountryDetailPage extends StatelessWidget {
                       ),
                     ),
                     AppBar(
-                      backgroundColor: Color.fromARGB(0, 0, 0, 0),
+                      backgroundColor: Colors.transparent,
                       iconTheme: IconThemeData(color: Colors.white),
                       flexibleSpace: LayoutBuilder(
                         builder:
@@ -79,21 +79,18 @@ class CountryDetailPage extends StatelessWidget {
                   ],
                 ),
               ),
-              body: Stack(
-                children: [
-                  SafeArea(
-                    child: Column(
-                      children: [
-                        _buildDispatchButton(state.country!),
-                        _buildPhonesSection(state.country!),
-                        ElevatedButton(
-                          onPressed: () => context.push('/map'),
-                          child: Text("Show location on map"),
-                        ),
-                      ],
+              body: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    _buildDispatchButton(state.country!),
+                    _buildPhonesSection(state.country!),
+                    ElevatedButton(
+                      onPressed: () => context.push('/map'),
+                      child: Text("Show location on map"),
                     ),
-                  ),
-                ],
+                    SizedBox(height: 20),
+                  ],
+                ),
               ),
             );
           }
