@@ -45,52 +45,50 @@ class CountryDetailPage extends StatelessWidget {
             return const LoadingPage();
           } else {
             return Scaffold(
-              appBar: PreferredSize(
-                preferredSize: Size.fromHeight(200.0),
-                child: Stack(
-                  children: [
-                    Positioned.fill(
-                      child: Assets.lib.assets.images.countryDetail.image(
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    AppBar(
-                      backgroundColor: Colors.transparent,
-                      iconTheme: IconThemeData(color: Colors.white),
-                      flexibleSpace: LayoutBuilder(
-                        builder:
-                            (BuildContext context, BoxConstraints constraints) {
-                          return FlexibleSpaceBar(
-                            titlePadding: EdgeInsets.only(left: 40, bottom: 70),
-                            title: Text(
-                              state.country?.name ?? 'Country',
-                              style: AppTextStyles.titleStyleWhite,
-                            ),
-                          );
-                        },
-                      ),
-                      actions: [
-                        CustomIconButton(
-                          onPressed: () => context.push('/settings'),
-                          color: Color.fromARGB(255, 255, 255, 255),
+              body: CustomScrollView(
+                slivers: [
+                  SliverAppBar(
+                    expandedHeight: 200.0,
+                    iconTheme: IconThemeData(color: Colors.white),
+                    backgroundColor: Colors.transparent,
+                    flexibleSpace: Stack(
+                      children: [
+                        Positioned.fill(
+                          child: Assets.lib.assets.images.countryDetail.image(
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        FlexibleSpaceBar(
+                          titlePadding: EdgeInsets.only(left: 50, bottom: 70),
+                          title: Text(
+                            state.country?.name ?? 'Country',
+                            style: AppTextStyles.titleStyleWhite
+                                .copyWith(fontSize: 16),
+                          ),
                         ),
                       ],
                     ),
-                  ],
-                ),
-              ),
-              body: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    _buildDispatchButton(state.country!),
-                    _buildPhonesSection(state.country!),
-                    ElevatedButton(
-                      onPressed: () => context.push('/map'),
-                      child: Text("Show location on map"),
+                    actions: [
+                      CustomIconButton(
+                        onPressed: () => context.push('/settings'),
+                        color: Color.fromARGB(255, 255, 255, 255),
+                      ),
+                    ],
+                  ),
+                  SliverToBoxAdapter(
+                    child: Column(
+                      children: [
+                        _buildDispatchButton(state.country!),
+                        _buildPhonesSection(state.country!),
+                        ElevatedButton(
+                          onPressed: () => context.push('/map'),
+                          child: Text("Show location on map"),
+                        ),
+                        SizedBox(height: 20),
+                      ],
                     ),
-                    SizedBox(height: 20),
-                  ],
-                ),
+                  ),
+                ],
               ),
             );
           }
