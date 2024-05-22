@@ -55,8 +55,7 @@ class HomePage extends StatelessWidget {
                               ),
                               const ReText(
                                 'Welcome',
-                                style: AppTextStyles
-                                    .titleStyle, // Use the reusable style
+                                style: AppTextStyles.titleStyleBlack,
                               ),
                             ],
                           ),

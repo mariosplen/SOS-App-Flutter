@@ -9,6 +9,7 @@ import 'package:sos/presentation/shared/alert_snackbar.dart';
 import 'package:sos/presentation/shared/loading_page.dart';
 import 'package:sos/presentation/shared/custom_icon_button.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sos/lib/presentation/features/text_styles.dart';
 
 class CountryDetailPage extends StatelessWidget {
   const CountryDetailPage({
@@ -54,8 +55,20 @@ class CountryDetailPage extends StatelessWidget {
                       ),
                     ),
                     AppBar(
-                      backgroundColor: Colors.transparent,
-                      title: Text(state.country?.name ?? 'Country'),
+                      backgroundColor: Color.fromARGB(0, 0, 0, 0),
+                      iconTheme: IconThemeData(color: Colors.white),
+                      flexibleSpace: LayoutBuilder(
+                        builder:
+                            (BuildContext context, BoxConstraints constraints) {
+                          return FlexibleSpaceBar(
+                            titlePadding: EdgeInsets.only(left: 40, bottom: 70),
+                            title: Text(
+                              state.country?.name ?? 'Country',
+                              style: AppTextStyles.titleStyleWhite,
+                            ),
+                          );
+                        },
+                      ),
                       actions: [
                         CustomIconButton(
                           onPressed: () => context.push('/settings'),
