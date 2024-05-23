@@ -82,11 +82,34 @@ class CountryDetailPage extends StatelessWidget {
                       children: [
                         _buildDispatchButton(state.country!),
                         _buildPhonesSection(state.country!),
-                        ElevatedButton(
-                          onPressed: () => context.push('/map'),
-                          child: const Text("Show location on map"),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 9.5, vertical: 10.0),
+                          child: ElevatedButton(
+                            onPressed: () => context.push('/map'),
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                Color.fromARGB(255, 255, 255, 255),
+                              ),
+                              shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(7),
+                                  side: const BorderSide(
+                                    color: Color.fromARGB(255, 46, 46, 46),
+                                    width: 1,
+                                  ),
+                                ),
+                              ),
+                              minimumSize: MaterialStateProperty.all<Size>(
+                                const Size(500.0, 50.0),
+                              ),
+                            ),
+                            child: const Text("SHOW LOCATION ON MAP",
+                                style: AppTextStyles.buttonStyle),
+                          ),
                         ),
-                        const SizedBox(height: 38),
+                        const SizedBox(height: 15),
                       ],
                     ),
                   ),

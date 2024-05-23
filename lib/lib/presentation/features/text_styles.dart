@@ -21,4 +21,10 @@ class AppTextStyles {
     fontSize: 48,
     color: Color.fromARGB(255, 255, 255, 255),
   );
+
+  static const TextStyle buttonStyle = TextStyle(
+    fontFamily: 'Roboto',
+    fontSize: 16,
+    color: Color.fromARGB(255, 0, 0, 0),
+  );
 }
