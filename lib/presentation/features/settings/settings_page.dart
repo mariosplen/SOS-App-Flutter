@@ -20,6 +20,7 @@ class SettingsPage extends StatelessWidget {
             LocaleNames.of(context)?.nameOf(context.locale.toString());
         return Scaffold(
           appBar: AppBar(
+            backgroundColor: Colors.transparent,
             title: const Text('Settings'),
           ),
           body: Padding(
