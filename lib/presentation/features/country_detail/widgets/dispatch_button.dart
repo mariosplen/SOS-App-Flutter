@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sos/gen/fonts.gen.dart';
 import 'package:sos/presentation/shared/re_text.dart';
 
 class DispatchButton extends StatelessWidget {
