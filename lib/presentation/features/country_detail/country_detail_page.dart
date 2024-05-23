@@ -12,7 +12,6 @@ import 'package:go_router/go_router.dart';
 import 'package:sos/lib/presentation/features/text_styles.dart';
 
 class CountryDetailPage extends StatelessWidget {
-  // ignore: use_super_parameters
   const CountryDetailPage({
     required this.country,
     required this.countries,
@@ -49,26 +48,27 @@ class CountryDetailPage extends StatelessWidget {
               body: CustomScrollView(
                 slivers: [
                   SliverAppBar(
-                    expandedHeight: 200.0,
+                    expandedHeight: 138.0,
                     iconTheme: const IconThemeData(color: Colors.white),
                     backgroundColor: Colors.transparent,
-                    flexibleSpace: Stack(
-                      children: [
-                        Positioned.fill(
-                          child: Assets.lib.assets.images.countryDetail.image(
+                    flexibleSpace: FlexibleSpaceBar(
+                      background: Stack(
+                        fit: StackFit.expand,
+                        children: [
+                          Assets.lib.assets.images.countryDetail2.image(
                             fit: BoxFit.cover,
                           ),
-                        ),
-                        FlexibleSpaceBar(
-                          titlePadding:
-                              const EdgeInsets.only(left: 50, bottom: 70),
-                          title: Text(
-                            state.country?.name ?? 'Country',
-                            style: AppTextStyles.titleStyleWhite
-                                .copyWith(fontSize: 16),
+                          Container(
+                            decoration: BoxDecoration(),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
+                      titlePadding: const EdgeInsets.only(left: 50, bottom: 16),
+                      title: Text(
+                        state.country?.name ?? 'Country',
+                        style: AppTextStyles.titleStyleWhite
+                            .copyWith(fontSize: 16),
+                      ),
                     ),
                     actions: [
                       CustomIconButton(
@@ -89,7 +89,7 @@ class CountryDetailPage extends StatelessWidget {
                             onPressed: () => context.push('/map'),
                             style: ButtonStyle(
                               backgroundColor: MaterialStateProperty.all<Color>(
-                                Color.fromARGB(255, 255, 255, 255),
+                                const Color.fromARGB(255, 255, 255, 255),
                               ),
                               shape: MaterialStateProperty.all<
                                   RoundedRectangleBorder>(
@@ -109,7 +109,7 @@ class CountryDetailPage extends StatelessWidget {
                                 style: AppTextStyles.buttonStyle),
                           ),
                         ),
-                        const SizedBox(height: 12), //here
+                        const SizedBox(height: 12),
                       ],
                     ),
                   ),
@@ -121,74 +121,79 @@ class CountryDetailPage extends StatelessWidget {
       ),
     );
   }
-}
 
-// UI Sections
-Widget _buildDispatchButton(Country country) {
-  if (country.dispatch.isEmpty) {
-    return const SizedBox.shrink();
+  Widget _buildDispatchButton(Country country) {
+    if (country.dispatch.isEmpty) {
+      return const SizedBox.shrink();
+    }
+
+    return Padding(
+      padding: const EdgeInsets.only(
+          top: 25.0, left: 70.0, right: 70.0), // Added top padding
+      child:
+          DispatchButton(country.dispatch, AppTextStyles.dispatchButtonStyle),
+    );
   }
 
-  return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 70.0),
-    child: DispatchButton(country.dispatch, AppTextStyles.dispatchButtonStyle),
-  );
-}
+  Widget _buildPhonesSection(Country country) {
+    if (country.ambulance.isEmpty &&
+        country.fire.isEmpty &&
+        country.police.isEmpty &&
+        country.traffic.isEmpty) {
+      return const SizedBox.shrink();
+    }
 
-Widget _buildPhonesSection(Country country) {
-  if (country.ambulance.isEmpty &&
-      country.fire.isEmpty &&
-      country.police.isEmpty &&
-      country.traffic.isEmpty) {
-    return const SizedBox.shrink();
+    return Column(
+      children: [
+        if (country.police.isNotEmpty)
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
+            child: PhoneButton(
+              title: 'Police',
+              color: const Color(0xFF5E9DE7),
+              numbers: country.police,
+              onPressed: () {},
+              icon: Assets.lib.assets.images.police,
+            ),
+          ),
+        if (country.ambulance.isNotEmpty)
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
+            child: PhoneButton(
+              title: 'Ambulance',
+              color: const Color(0xFF76cc57),
+              numbers: country.ambulance,
+              onPressed: () {},
+              icon: Assets.lib.assets.images.ambulance,
+            ),
+          ),
+        if (country.fire.isNotEmpty)
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
+            child: PhoneButton(
+              title: 'Fire',
+              color: const Color(0xFFF0AC5D),
+              numbers: country.fire,
+              onPressed: () {},
+              icon: Assets.lib.assets.images.fire,
+            ),
+          ),
+        if (country.traffic.isNotEmpty)
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
+            child: PhoneButton(
+              title: 'Traffic',
+              color: const Color(0xFF76cc57),
+              numbers: country.traffic,
+              onPressed: () {},
+              icon: Assets.lib.assets.images.ambulance,
+            ),
+          ),
+      ],
+    );
   }
-
-  return Column(
-    children: [
-      if (country.police.isNotEmpty)
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
-          child: PhoneButton(
-            title: 'Police',
-            color: const Color(0xFF5E9DE7),
-            numbers: country.police,
-            onPressed: () {},
-            icon: Assets.lib.assets.images.police,
-          ),
-        ),
-      if (country.ambulance.isNotEmpty)
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
-          child: PhoneButton(
-            title: 'Ambulance',
-            color: const Color(0xFF76cc57),
-            numbers: country.ambulance,
-            onPressed: () {},
-            icon: Assets.lib.assets.images.ambulance,
-          ),
-        ),
-      if (country.fire.isNotEmpty) //
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
-          child: PhoneButton(
-            title: 'Fire',
-            color: const Color(0xFFF0AC5D),
-            numbers: country.fire,
-            onPressed: () {},
-            icon: Assets.lib.assets.images.fire,
-          ),
-        ),
-      if (country.traffic.isNotEmpty)
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
-          child: PhoneButton(
-            title: 'Traffic',
-            color: const Color(0xFF76cc57),
-            numbers: country.traffic,
-            onPressed: () {},
-            icon: Assets.lib.assets.images.ambulance,
-          ),
-        ),
-    ],
-  );
 }
