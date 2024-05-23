@@ -86,7 +86,7 @@ class CountryDetailPage extends StatelessWidget {
                           onPressed: () => context.push('/map'),
                           child: const Text("Show location on map"),
                         ),
-                        const SizedBox(height: 55),
+                        const SizedBox(height: 38),
                       ],
                     ),
                   ),

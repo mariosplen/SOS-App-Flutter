@@ -68,7 +68,7 @@ class PhoneButton extends StatelessWidget {
                   ),
                 ),
                 Transform.translate(
-                  offset: Offset(0, -12), //bring number and text closer
+                  offset: const Offset(0, -12), //bring number and text closer
                   child: ReText(
                     title,
                     style: titleTextStyle ?? defaultTitleTextStyle,
