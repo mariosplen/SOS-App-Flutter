@@ -69,6 +69,8 @@ flutter:
           weight: 600
         - asset: lib/assets/fonts/Roboto/Roboto-Bold.ttf
           weight: 800
+        - asset: lib/assets/fonts/Roboto/Roboto-Bold.ttf
+          weight: 900
 
 
 

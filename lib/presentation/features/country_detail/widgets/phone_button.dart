@@ -32,7 +32,7 @@ class PhoneButton extends StatelessWidget {
       fontFamily: FontFamily.roboto,
     );
     const defaultNumbersTextStyle = TextStyle(
-      fontSize: 45,
+      fontSize: 40,
       color: Colors.white,
       fontWeight: FontWeight.w800,
       fontFamily: FontFamily.roboto,
