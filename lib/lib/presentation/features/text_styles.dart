@@ -14,4 +14,11 @@ class AppTextStyles {
     fontSize: 20,
     color: Colors.white,
   );
+
+  static const TextStyle dispatchButtonStyle = TextStyle(
+    fontFamily: 'Roboto',
+    fontWeight: FontWeight.w800, // 400 corresponds to Regular
+    fontSize: 48,
+    color: Color.fromARGB(255, 0, 0, 0),
+  );
 }

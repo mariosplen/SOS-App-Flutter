@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:sos/gen/fonts.gen.dart';
 import 'package:sos/presentation/shared/re_text.dart';
 
 class DispatchButton extends StatelessWidget {
   const DispatchButton(
-    this.numbers, {
-    super.key,
-  });
+    this.numbers,
+    this.buttonText, {
+    Key? key,
+  }) : super(key: key);
+
   final List<String> numbers;
+  final TextStyle buttonText;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +25,10 @@ class DispatchButton extends StatelessWidget {
             children: [
               ...List.generate(
                 numbers.length,
-                (index) => ReText(numbers[index]),
+                (index) => ReText(
+                  numbers[index],
+                  style: buttonText,
+                ),
               ),
             ],
           ),

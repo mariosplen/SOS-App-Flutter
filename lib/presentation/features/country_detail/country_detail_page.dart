@@ -108,7 +108,7 @@ Widget _buildDispatchButton(Country country) {
 
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 70.0),
-    child: DispatchButton(country.dispatch),
+    child: DispatchButton(country.dispatch, AppTextStyles.dispatchButtonStyle),
   );
 }
 
