@@ -109,7 +109,7 @@ class CountryDetailPage extends StatelessWidget {
                                 style: AppTextStyles.buttonStyle),
                           ),
                         ),
-                        const SizedBox(height: 15),
+                        const SizedBox(height: 12), //here
                       ],
                     ),
                   ),
