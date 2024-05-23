@@ -59,7 +59,7 @@ class CountryDetailPage extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                           Container(
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                           ),
                         ],
                       ),
@@ -128,8 +128,7 @@ class CountryDetailPage extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.only(
-          top: 25.0, left: 70.0, right: 70.0), // Added top padding
+      padding: const EdgeInsets.only(top: 20.0, left: 70.0, right: 70.0),
       child:
           DispatchButton(country.dispatch, AppTextStyles.dispatchButtonStyle),
     );
@@ -143,57 +142,60 @@ class CountryDetailPage extends StatelessWidget {
       return const SizedBox.shrink();
     }
 
-    return Column(
-      children: [
-        if (country.police.isNotEmpty)
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
-            child: PhoneButton(
-              title: 'Police',
-              color: const Color(0xFF5E9DE7),
-              numbers: country.police,
-              onPressed: () {},
-              icon: Assets.lib.assets.images.police,
+    return Padding(
+      padding: const EdgeInsets.only(top: 16.0), //top padding police
+      child: Column(
+        children: [
+          if (country.police.isNotEmpty)
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
+              child: PhoneButton(
+                title: 'Police',
+                color: const Color(0xFF5E9DE7),
+                numbers: country.police,
+                onPressed: () {},
+                icon: Assets.lib.assets.images.police,
+              ),
             ),
-          ),
-        if (country.ambulance.isNotEmpty)
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
-            child: PhoneButton(
-              title: 'Ambulance',
-              color: const Color(0xFF76cc57),
-              numbers: country.ambulance,
-              onPressed: () {},
-              icon: Assets.lib.assets.images.ambulance,
+          if (country.ambulance.isNotEmpty)
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
+              child: PhoneButton(
+                title: 'Ambulance',
+                color: const Color(0xFF76cc57),
+                numbers: country.ambulance,
+                onPressed: () {},
+                icon: Assets.lib.assets.images.ambulance,
+              ),
             ),
-          ),
-        if (country.fire.isNotEmpty)
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
-            child: PhoneButton(
-              title: 'Fire',
-              color: const Color(0xFFF0AC5D),
-              numbers: country.fire,
-              onPressed: () {},
-              icon: Assets.lib.assets.images.fire,
+          if (country.fire.isNotEmpty)
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
+              child: PhoneButton(
+                title: 'Fire',
+                color: const Color(0xFFF0AC5D),
+                numbers: country.fire,
+                onPressed: () {},
+                icon: Assets.lib.assets.images.fire,
+              ),
             ),
-          ),
-        if (country.traffic.isNotEmpty)
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
-            child: PhoneButton(
-              title: 'Traffic',
-              color: const Color(0xFF76cc57),
-              numbers: country.traffic,
-              onPressed: () {},
-              icon: Assets.lib.assets.images.ambulance,
+          if (country.traffic.isNotEmpty)
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
+              child: PhoneButton(
+                title: 'Traffic',
+                color: const Color(0xFF76cc57),
+                numbers: country.traffic,
+                onPressed: () {},
+                icon: Assets.lib.assets.images.ambulance,
+              ),
             ),
-          ),
-      ],
+        ],
+      ),
     );
   }
 }
