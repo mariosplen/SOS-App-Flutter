@@ -5,28 +5,45 @@ import 'package:sos/presentation/shared/pressable.dart';
 import 'package:sos/presentation/shared/re_text.dart';
 
 class PhoneButton extends StatelessWidget {
+  // ignore: use_key_in_widget_constructors
   const PhoneButton({
     required this.numbers,
     required this.onPressed,
     required this.icon,
     required this.color,
     required this.title,
-    super.key,
+    this.titleTextStyle,
+    this.numbersTextStyle,
   });
+
   final String title;
   final List<String> numbers;
   final void Function() onPressed;
   final AssetGenImage icon;
   final Color color;
+  final TextStyle? titleTextStyle;
+  final TextStyle? numbersTextStyle;
 
   @override
   Widget build(BuildContext context) {
+    const defaultTitleTextStyle = TextStyle(
+      fontSize: 14,
+      color: Colors.white,
+      fontFamily: FontFamily.roboto,
+    );
+    const defaultNumbersTextStyle = TextStyle(
+      fontSize: 45,
+      color: Colors.white,
+      fontWeight: FontWeight.w800,
+      fontFamily: FontFamily.roboto,
+    );
+
     final radius = BorderRadius.circular(7);
     return Pressable(
       onTap: onPressed,
       borderRadius: radius,
       child: Container(
-        height: 78,
+        height: 84,
         decoration: BoxDecoration(
           borderRadius: radius,
           color: color,
@@ -46,12 +63,16 @@ class PhoneButton extends StatelessWidget {
                     numbers.length,
                     (index) => ReText(
                       numbers[index],
-                      style: _textStyle,
+                      style: numbersTextStyle ?? defaultNumbersTextStyle,
                     ),
                   ),
                 ),
-                ReText(
-                  title,
+                Transform.translate(
+                  offset: Offset(0, -12), //bring number and text closer
+                  child: ReText(
+                    title,
+                    style: titleTextStyle ?? defaultTitleTextStyle,
+                  ),
                 ),
               ],
             ),
@@ -61,12 +82,3 @@ class PhoneButton extends StatelessWidget {
     );
   }
 }
-
-TextStyle _textStyle = const TextStyle(
-  fontFamily: FontFamily.roboto,
-  fontSize: 20,
-  color: Colors.white,
-  fontWeight: FontWeight.w500,
-  wordSpacing: 0.5,
-  height: 20 / 14,
-);

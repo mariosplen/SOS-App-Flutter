@@ -12,6 +12,7 @@ import 'package:go_router/go_router.dart';
 import 'package:sos/lib/presentation/features/text_styles.dart';
 
 class CountryDetailPage extends StatelessWidget {
+  // ignore: use_super_parameters
   const CountryDetailPage({
     required this.country,
     required this.countries,
@@ -49,7 +50,7 @@ class CountryDetailPage extends StatelessWidget {
                 slivers: [
                   SliverAppBar(
                     expandedHeight: 200.0,
-                    iconTheme: IconThemeData(color: Colors.white),
+                    iconTheme: const IconThemeData(color: Colors.white),
                     backgroundColor: Colors.transparent,
                     flexibleSpace: Stack(
                       children: [
@@ -59,7 +60,8 @@ class CountryDetailPage extends StatelessWidget {
                           ),
                         ),
                         FlexibleSpaceBar(
-                          titlePadding: EdgeInsets.only(left: 50, bottom: 70),
+                          titlePadding:
+                              const EdgeInsets.only(left: 50, bottom: 70),
                           title: Text(
                             state.country?.name ?? 'Country',
                             style: AppTextStyles.titleStyleWhite
@@ -71,7 +73,7 @@ class CountryDetailPage extends StatelessWidget {
                     actions: [
                       CustomIconButton(
                         onPressed: () => context.push('/settings'),
-                        color: Color.fromARGB(255, 255, 255, 255),
+                        color: const Color.fromARGB(255, 255, 255, 255),
                       ),
                     ],
                   ),
@@ -82,9 +84,9 @@ class CountryDetailPage extends StatelessWidget {
                         _buildPhonesSection(state.country!),
                         ElevatedButton(
                           onPressed: () => context.push('/map'),
-                          child: Text("Show location on map"),
+                          child: const Text("Show location on map"),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 55),
                       ],
                     ),
                   ),
@@ -122,7 +124,7 @@ Widget _buildPhonesSection(Country country) {
     children: [
       if (country.police.isNotEmpty)
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 9.5),
+          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
           child: PhoneButton(
             title: 'Police',
             color: const Color(0xFF5E9DE7),
@@ -133,7 +135,7 @@ Widget _buildPhonesSection(Country country) {
         ),
       if (country.ambulance.isNotEmpty)
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 9.5),
+          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
           child: PhoneButton(
             title: 'Ambulance',
             color: const Color(0xFF76cc57),
@@ -144,7 +146,7 @@ Widget _buildPhonesSection(Country country) {
         ),
       if (country.fire.isNotEmpty) //
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 9.5),
+          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
           child: PhoneButton(
             title: 'Fire',
             color: const Color(0xFFF0AC5D),
@@ -155,7 +157,7 @@ Widget _buildPhonesSection(Country country) {
         ),
       if (country.traffic.isNotEmpty)
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 9.5),
+          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
           child: PhoneButton(
             title: 'Traffic',
             color: const Color(0xFF76cc57),
