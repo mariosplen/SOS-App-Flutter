@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sos/lib/presentation/features/text_styles.dart';
 
 class SettingTile extends StatelessWidget {
   const SettingTile({
@@ -18,11 +19,11 @@ class SettingTile extends StatelessWidget {
     return ListTile(
       onTap: onTap,
       leading: icon,
-      title: Text(title),
+      title: Text(title, style: AppTextStyles.settingsTitleStyle),
       trailing: Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
         children: [
-          Text(selectedValue ?? ''),
+          Text(selectedValue ?? '', style: AppTextStyles.settingsDescStyle),
           const Icon(Icons.chevron_right),
         ],
       ),

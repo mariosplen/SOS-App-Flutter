@@ -27,4 +27,18 @@ class AppTextStyles {
     fontSize: 16,
     color: Color.fromARGB(255, 0, 0, 0),
   );
+
+  static const TextStyle settingsTitleStyle = TextStyle(
+    fontFamily: 'Roboto',
+    fontSize: 16,
+    color: Color.fromARGB(255, 61, 61, 61),
+    fontWeight: FontWeight.w400,
+  );
+
+  static const TextStyle settingsDescStyle = TextStyle(
+    fontFamily: 'Roboto',
+    fontSize: 16,
+    color: Color.fromARGB(255, 90, 90, 90),
+    fontWeight: FontWeight.w200, //extralight
+  );
 }

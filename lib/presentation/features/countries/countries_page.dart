@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sos/blocs/countries/countries_bloc.dart';
-import 'package:sos/gen/fonts.gen.dart';
+import 'package:sos/lib/presentation/features/text_styles.dart';
 import 'package:sos/models/country_model.dart';
 import 'package:sos/presentation/features/countries/widgets/country_tile.dart';
 import 'package:sos/presentation/features/countries/widgets/or_separator.dart';
@@ -22,10 +22,8 @@ class CountriesPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: Text(
-            'Select Country',
-            style: _titleStyle,
-          ),
+          title: const Text('Select Country',
+              style: AppTextStyles.titleStyleBlack),
           actions: [
             CustomIconButton(
               onPressed: () => context.push('/settings'),
@@ -90,12 +88,3 @@ class CountriesPage extends StatelessWidget {
     );
   }
 }
-
-TextStyle _titleStyle = const TextStyle(
-  fontFamily: FontFamily.roboto,
-  fontSize: 20,
-  fontWeight: FontWeight.w600,
-  height: 20 / 16,
-  letterSpacing: 0.5,
-  color: AppPalette.black,
-);

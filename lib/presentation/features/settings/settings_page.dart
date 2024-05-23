@@ -23,7 +23,7 @@ class SettingsPage extends StatelessWidget {
             title: const Text('Settings'),
           ),
           body: Padding(
-            padding: const EdgeInsets.all(40.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
                 SettingTile(
