@@ -4,27 +4,31 @@ import 'package:sos/models/country_model.dart';
 import 'package:sos/theme/app_palette.dart';
 
 class UseLocationButton extends StatelessWidget {
+  // ignore: use_super_parameters
   const UseLocationButton({
-    super.key,
+    Key? key,
     required this.countries,
     required this.onTap,
-  });
+  }) : super(key: key);
 
   final List<Country> countries;
   final void Function() onTap;
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton.icon(
-      icon: const Icon(
-        Icons.location_on,
-        color: AppPalette.white,
-      ),
-      onPressed: onTap,
-      style: _buttonStyle,
-      label: Text(
-        'USE MY LOCATION',
-        style: _titleStyle,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20.0),
+      child: ElevatedButton.icon(
+        icon: const Icon(
+          Icons.location_on,
+          color: AppPalette.white,
+        ),
+        onPressed: onTap,
+        style: _buttonStyle,
+        label: Text(
+          'USE MY LOCATION',
+          style: _titleStyle,
+        ),
       ),
     );
   }

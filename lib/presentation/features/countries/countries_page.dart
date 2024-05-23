@@ -21,6 +21,7 @@ class CountriesPage extends StatelessWidget {
       create: (context) => CountriesBloc()..add(const LoadCountries()),
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.transparent,
           title: Text(
             'Select Country',
             style: _titleStyle,
