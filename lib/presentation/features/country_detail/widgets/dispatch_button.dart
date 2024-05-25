@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:sos/presentation/shared/re_text.dart';
 
 class DispatchButton extends StatelessWidget {
-  // ignore: use_super_parameters
   const DispatchButton(
     this.numbers,
     this.buttonText, {
+    required this.onPressed,
     Key? key,
   }) : super(key: key);
 
   final List<String> numbers;
   final TextStyle buttonText;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class DispatchButton extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(bottom: 12),
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: onPressed,
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(
                   const Color.fromARGB(255, 255, 139, 131)),

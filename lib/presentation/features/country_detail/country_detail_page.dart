@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sos/blocs/country_detail/country_detail_bloc.dart';
 import 'package:sos/gen/assets.gen.dart';
@@ -9,6 +10,7 @@ import 'package:sos/presentation/shared/alert_snackbar.dart';
 import 'package:sos/presentation/shared/loading_page.dart';
 import 'package:sos/presentation/shared/custom_icon_button.dart';
 import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:sos/lib/presentation/features/text_styles.dart';
 
 class CountryDetailPage extends StatelessWidget {
@@ -20,6 +22,21 @@ class CountryDetailPage extends StatelessWidget {
 
   final Country? country;
   final List<Country> countries;
+
+  Future<void> _copyToClipboardAndOpenDialer(String phoneNumber) async {
+    // Copy the phone number to the clipboard
+    Clipboard.setData(ClipboardData(text: phoneNumber));
+    // Open the phone dialer app
+    final Uri dialerUri = Uri(
+      scheme: 'tel',
+      path: Uri.encodeComponent(phoneNumber),
+    );
+    if (await canLaunch(dialerUri.toString())) {
+      await launch(dialerUri.toString());
+    } else {
+      debugPrint('Could not launch phone dialer for $phoneNumber');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -129,8 +146,11 @@ class CountryDetailPage extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.only(top: 20.0, left: 70.0, right: 70.0),
-      child:
-          DispatchButton(country.dispatch, AppTextStyles.dispatchButtonStyle),
+      child: DispatchButton(
+        country.dispatch,
+        AppTextStyles.dispatchButtonStyle,
+        onPressed: () => _copyToClipboardAndOpenDialer(country.dispatch.first),
+      ),
     );
   }
 
@@ -154,7 +174,8 @@ class CountryDetailPage extends StatelessWidget {
                 title: 'Police',
                 color: const Color(0xFF5E9DE7),
                 numbers: country.police,
-                onPressed: () {},
+                onPressed: () =>
+                    _copyToClipboardAndOpenDialer(country.police.first),
                 icon: Assets.lib.assets.images.police,
               ),
             ),
@@ -166,7 +187,8 @@ class CountryDetailPage extends StatelessWidget {
                 title: 'Ambulance',
                 color: const Color(0xFF76cc57),
                 numbers: country.ambulance,
-                onPressed: () {},
+                onPressed: () =>
+                    _copyToClipboardAndOpenDialer(country.ambulance.first),
                 icon: Assets.lib.assets.images.ambulance,
               ),
             ),
@@ -178,7 +200,8 @@ class CountryDetailPage extends StatelessWidget {
                 title: 'Fire',
                 color: const Color(0xFFF0AC5D),
                 numbers: country.fire,
-                onPressed: () {},
+                onPressed: () =>
+                    _copyToClipboardAndOpenDialer(country.fire.first),
                 icon: Assets.lib.assets.images.fire,
               ),
             ),
@@ -190,7 +213,8 @@ class CountryDetailPage extends StatelessWidget {
                 title: 'Traffic',
                 color: const Color(0xFF76cc57),
                 numbers: country.traffic,
-                onPressed: () {},
+                onPressed: () =>
+                    _copyToClipboardAndOpenDialer(country.traffic.first),
                 icon: Assets.lib.assets.images.ambulance,
               ),
             ),

@@ -6,5 +6,7 @@ class AppTheme {
     scaffoldBackgroundColor: AppPalette.whiteSmoke,
   );
 
-  static final darkThemeMode = ThemeData.dark().copyWith();
+  static final darkThemeMode = ThemeData.dark().copyWith(
+    scaffoldBackgroundColor: const Color.fromARGB(255, 35, 35, 35),
+  );
 }
