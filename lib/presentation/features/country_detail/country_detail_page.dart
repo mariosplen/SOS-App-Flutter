@@ -147,7 +147,7 @@ class CountryDetailPage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 20.0, left: 70.0, right: 70.0),
       child: DispatchButton(
-        country.dispatch,
+        [country.dispatch.first], //display first number
         AppTextStyles.dispatchButtonStyle,
         onPressed: () => _copyToClipboardAndOpenDialer(country.dispatch.first),
       ),
