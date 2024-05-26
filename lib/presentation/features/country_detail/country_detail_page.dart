@@ -173,7 +173,7 @@ class CountryDetailPage extends StatelessWidget {
               child: PhoneButton(
                 title: 'Police',
                 color: const Color(0xFF5E9DE7),
-                numbers: country.police,
+                numbers: [country.police.first], //display only the first number
                 onPressed: () =>
                     _copyToClipboardAndOpenDialer(country.police.first),
                 icon: Assets.lib.assets.images.police,
@@ -186,7 +186,9 @@ class CountryDetailPage extends StatelessWidget {
               child: PhoneButton(
                 title: 'Ambulance',
                 color: const Color(0xFF76cc57),
-                numbers: country.ambulance,
+                numbers: [
+                  country.ambulance.first
+                ], //display only the first number
                 onPressed: () =>
                     _copyToClipboardAndOpenDialer(country.ambulance.first),
                 icon: Assets.lib.assets.images.ambulance,
@@ -199,7 +201,7 @@ class CountryDetailPage extends StatelessWidget {
               child: PhoneButton(
                 title: 'Fire',
                 color: const Color(0xFFF0AC5D),
-                numbers: country.fire,
+                numbers: [country.fire.first], //display only the first number
                 onPressed: () =>
                     _copyToClipboardAndOpenDialer(country.fire.first),
                 icon: Assets.lib.assets.images.fire,
@@ -212,7 +214,9 @@ class CountryDetailPage extends StatelessWidget {
               child: PhoneButton(
                 title: 'Traffic',
                 color: const Color(0xFF76cc57),
-                numbers: country.traffic,
+                numbers: [
+                  country.traffic.first
+                ], //display only the first number
                 onPressed: () =>
                     _copyToClipboardAndOpenDialer(country.traffic.first),
                 icon: Assets.lib.assets.images.ambulance,
