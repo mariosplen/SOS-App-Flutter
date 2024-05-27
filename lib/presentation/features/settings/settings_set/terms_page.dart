@@ -9,19 +9,19 @@ class TermsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Terms'),
+        title: Text(LocaleKeys.terms.tr()),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(LocaleKeys.terms.tr()),
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text('Save'),
-              ),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(LocaleKeys.terms.tr()),
+                const SizedBox(height: 20),
+              ],
+            ),
           ),
         ),
       ),

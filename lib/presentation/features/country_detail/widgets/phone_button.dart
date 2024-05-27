@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sos/gen/assets.gen.dart';
 import 'package:sos/gen/fonts.gen.dart';
 import 'package:sos/presentation/shared/pressable.dart';
-import 'package:sos/presentation/shared/re_text.dart';
 
 class PhoneButton extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
@@ -61,7 +60,7 @@ class PhoneButton extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
                     numbers.length,
-                    (index) => ReText(
+                    (index) => Text(
                       numbers[index],
                       style: numbersTextStyle ?? defaultNumbersTextStyle,
                     ),
@@ -69,7 +68,7 @@ class PhoneButton extends StatelessWidget {
                 ),
                 Transform.translate(
                   offset: const Offset(0, -12), //bring number and text closer
-                  child: ReText(
+                  child: Text(
                     title,
                     style: titleTextStyle ?? defaultTitleTextStyle,
                   ),

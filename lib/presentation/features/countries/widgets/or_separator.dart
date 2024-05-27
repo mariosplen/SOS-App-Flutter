@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:sos/gen/fonts.gen.dart';
+import 'package:sos/gen/translations/locale_keys.g.dart';
 import 'package:sos/theme/app_palette.dart';
 
 class OrSeparator extends StatelessWidget {
@@ -19,7 +21,7 @@ class OrSeparator extends StatelessWidget {
             ),
           ),
           Text(
-            "OR",
+            LocaleKeys.or.tr(),
             style: orSeparatorTextStyle,
           ),
           Expanded(

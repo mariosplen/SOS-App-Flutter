@@ -9,7 +9,7 @@ class Country {
   final List<String> police;
   final List<String> dispatch;
   final List<String> traffic;
-  final bool isFavorite;
+  bool isFavorite;
 
   Country({
     required this.name,

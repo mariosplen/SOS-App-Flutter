@@ -28,3 +28,12 @@ class ChangeTerms extends SettingsEvent {
   @override
   List<Object> get props => [termsAccepted];
 }
+
+class ChangeLanguage extends SettingsEvent {
+  const ChangeLanguage(this.language);
+
+  final String language;
+
+  @override
+  List<Object> get props => [language];
+}

@@ -1,17 +1,19 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sos/blocs/map/map_bloc.dart';
 import 'package:sos/gen/fonts.gen.dart';
+import 'package:sos/gen/translations/locale_keys.g.dart';
 import 'package:sos/presentation/features/map/widgets/address_text.dart';
 import 'package:sos/presentation/features/map/widgets/location_pin.dart';
 import 'package:sos/presentation/shared/alert_snackbar.dart';
+import 'package:sos/presentation/shared/custom_icon_button.dart';
 import 'package:sos/presentation/shared/loading_page.dart';
 import 'package:sos/theme/app_palette.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
-import 'package:sos/presentation/shared/custom_icon_button.dart';
 
 class MapPage extends StatelessWidget {
   const MapPage({
@@ -31,8 +33,8 @@ class MapPage extends StatelessWidget {
           if (state.copied) {
             showTopSnackBar(
               Overlay.of(context),
-              const CustomSnackBar.success(
-                message: "Your location has been copied to clipboard.",
+              CustomSnackBar.success(
+                message: LocaleKeys.location_copied.tr(),
               ),
             );
           }
@@ -64,6 +66,7 @@ class MapPage extends StatelessWidget {
                       TileLayer(
                         urlTemplate:
                             'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                        userAgentPackageName: 'com.github.mariosplen.sos',
                       ),
                     ],
                   ),
@@ -99,7 +102,7 @@ class MapPage extends StatelessWidget {
                           icon:
                               const Icon(Icons.share, color: AppPalette.white),
                           label: Text(
-                            "SHARE",
+                            LocaleKeys.share.tr().toUpperCase(),
                             style: _buttonTextStyle,
                           ),
                         ),

@@ -1,14 +1,15 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sos/blocs/settings/settings_bloc.dart';
 import 'package:sos/gen/assets.gen.dart';
-import 'package:sos/presentation/features/home/widgets/terms_modal.dart';
-import 'package:sos/presentation/features/home/widgets/home_button.dart';
-import 'package:sos/presentation/shared/re_text.dart';
-import 'package:sos/theme/app_palette.dart';
+import 'package:sos/gen/translations/locale_keys.g.dart';
 import 'package:sos/lib/presentation/features/text_styles.dart';
+import 'package:sos/presentation/features/home/widgets/home_button.dart';
+import 'package:sos/presentation/features/home/widgets/terms_modal.dart';
 import 'package:sos/presentation/shared/custom_icon_button.dart';
+import 'package:sos/theme/app_palette.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -53,21 +54,21 @@ class HomePage extends StatelessWidget {
                                 height: 100,
                                 width: 100,
                               ),
-                              const ReText(
-                                'Welcome',
+                              Text(
+                                LocaleKeys.welcome.tr(),
                                 style: AppTextStyles.titleStyleBlack,
                               ),
                             ],
                           ),
                           const SizedBox(height: 100),
                           HomeButton(
-                            text: "Emergency Numbers",
+                            text: LocaleKeys.emergency_numbers.tr(),
                             onPressed: () => context.push('/countries'),
                             icon: Assets.lib.assets.images.call,
                           ),
                           const SizedBox(height: 20),
                           HomeButton(
-                            text: "Share My Location",
+                            text: LocaleKeys.share_location.tr(),
                             onPressed: () => context.push('/map'),
                             icon: Assets.lib.assets.images.location,
                           ),
@@ -92,7 +93,7 @@ class HomePage extends StatelessWidget {
         onAccept: () {
           context.read<SettingsBloc>().add(const ChangeTerms(true));
         },
-        onTermsTap: () => context.push('/terms'),
+        onTermsTap: () => context.push("/settings/terms"),
       ),
     );
   }

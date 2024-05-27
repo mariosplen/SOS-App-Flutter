@@ -58,13 +58,16 @@ class $LibAssetsImagesGen {
   AssetGenImage get bgTop =>
       const AssetGenImage('lib/assets/images/bg_top.png');
 
-  AssetGenImage get countryDetail =>
-      const AssetGenImage('lib/assets/images/country_details.png');
-  AssetGenImage get countryDetail2 =>
-      const AssetGenImage('lib/assets/images/country_details2.png');
-
   /// File path: lib/assets/images/call.png
   AssetGenImage get call => const AssetGenImage('lib/assets/images/call.png');
+
+  /// File path: lib/assets/images/country_details.png
+  AssetGenImage get countryDetails =>
+      const AssetGenImage('lib/assets/images/country_details.png');
+
+  /// File path: lib/assets/images/country_details2.png
+  AssetGenImage get countryDetails2 =>
+      const AssetGenImage('lib/assets/images/country_details2.png');
 
   /// File path: lib/assets/images/fire.png
   AssetGenImage get fire => const AssetGenImage('lib/assets/images/fire.png');
@@ -80,9 +83,27 @@ class $LibAssetsImagesGen {
   AssetGenImage get police =>
       const AssetGenImage('lib/assets/images/police.png');
 
+  /// File path: lib/assets/images/traffic.png
+  AssetGenImage get traffic =>
+      const AssetGenImage('lib/assets/images/traffic.png');
+
+  /// File path: lib/assets/images/wave.png
+  AssetGenImage get wave => const AssetGenImage('lib/assets/images/wave.png');
+
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [ambulance, bgTop, call, fire, location, logo, police];
+  List<AssetGenImage> get values => [
+        ambulance,
+        bgTop,
+        call,
+        countryDetails,
+        countryDetails2,
+        fire,
+        location,
+        logo,
+        police,
+        traffic,
+        wave
+      ];
 }
 
 class $LibAssetsTranslationsGen {

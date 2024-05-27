@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:sos/gen/translations/locale_keys.g.dart';
 import 'package:sos/models/exceptions.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
 import 'package:top_snackbar_flutter/top_snack_bar.dart';
@@ -14,6 +16,27 @@ void showAlertMessageSnackBar(BuildContext context, String message) {
 }
 
 void showAlertSnackbar(BuildContext context, AppExceptionType type) {
+  String getDisplayedErrorMessage(AppExceptionType type) {
+    switch (type) {
+      case AppExceptionType.unknown:
+        return LocaleKeys.error_unknown.tr();
+      case AppExceptionType.locationDisabled:
+        return LocaleKeys.error_location_disabled.tr();
+      case AppExceptionType.locationDeniedForever:
+        return LocaleKeys.error_location_denied_forever.tr();
+      case AppExceptionType.locationDenied:
+        return LocaleKeys.error_location_denied.tr();
+      case AppExceptionType.geoLocatorError:
+        return LocaleKeys.error_geo_locator.tr();
+      case AppExceptionType.geoCodingError:
+        return LocaleKeys.error_geo_coding.tr();
+      case AppExceptionType.geoCodingLimitError:
+        return LocaleKeys.error_geo_coding_limit.tr();
+      case AppExceptionType.countryNotSupported:
+        return LocaleKeys.error_country_not_supported.tr();
+    }
+  }
+
   if (type == AppExceptionType.unknown ||
       type == AppExceptionType.geoLocatorError ||
       type == AppExceptionType.geoCodingError ||
@@ -31,26 +54,5 @@ void showAlertSnackbar(BuildContext context, AppExceptionType type) {
       Overlay.of(context),
       CustomSnackBar.info(message: getDisplayedErrorMessage(type)),
     );
-  }
-}
-
-String getDisplayedErrorMessage(AppExceptionType type) {
-  switch (type) {
-    case AppExceptionType.unknown:
-      return 'An unknown error occurred, please try again later.';
-    case AppExceptionType.locationDisabled:
-      return 'Location services are disabled, please enable location to use this feature.';
-    case AppExceptionType.locationDeniedForever:
-      return 'Location permissions are denied permanently, please allow location permissions in app permissions settings.';
-    case AppExceptionType.locationDenied:
-      return 'Location permissions are denied, please allow location permissions to use this feature.';
-    case AppExceptionType.geoLocatorError:
-      return 'An error occurred while getting location, please try again later.';
-    case AppExceptionType.geoCodingError:
-      return 'An error occurred while getting address, please try again later.';
-    case AppExceptionType.geoCodingLimitError:
-      return 'You have reached the limit of address requests, please try again later.';
-    case AppExceptionType.countryNotSupported:
-      return 'We are sorry, but this country is not supported.';
   }
 }

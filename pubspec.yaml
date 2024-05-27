@@ -1,5 +1,5 @@
 name: sos
-description: "A new Flutter project."
+description: "Emergency app for everyone and everywhere."
 publish_to: 'none'
 version: 1.0.0+1
 environment:
@@ -15,6 +15,9 @@ environment:
 
 # To generate assets run:
 # dart run build_runner build
+
+# To change app icon run:
+# flutter pub run flutter_launcher_icons:main
 
 
 dependencies:
@@ -38,6 +41,7 @@ dependencies:
   top_snackbar_flutter: ^3.1.0
   country_data: ^0.0.2
   url_launcher: ^6.0.6
+  flutter_phoenix: ^1.1.1
 
 
 dev_dependencies:

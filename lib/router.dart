@@ -30,9 +30,9 @@ class AppRouter {
       GoRoute(
         path: "/country-detail",
         pageBuilder: (context, state) {
-          final params = state.extra as Map<String, dynamic>;
-          final country = params['country'] as Country?;
-          final countries = params['countries'] as List<Country>?;
+          final params = state.extra as Map<String, dynamic>?;
+          final country = params?['country'] as Country?;
+          final countries = params?['countries'] as List<Country>?;
           return MaterialPage(
             child:
                 CountryDetailPage(country: country, countries: countries ?? []),

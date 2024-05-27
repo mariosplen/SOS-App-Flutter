@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:sos/presentation/shared/re_text.dart';
 
 class DispatchButton extends StatelessWidget {
   const DispatchButton(
     this.numbers,
     this.buttonText, {
     required this.onPressed,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final List<String> numbers;
   final TextStyle buttonText;
@@ -25,14 +24,15 @@ class DispatchButton extends StatelessWidget {
             onPressed: onPressed,
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(
-                  const Color.fromARGB(255, 255, 139, 131)),
+                const Color.fromARGB(255, 255, 139, 131),
+              ),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 ...List.generate(
                   numbers.length,
-                  (index) => ReText(
+                  (index) => Text(
                     numbers[index],
                     style: buttonText,
                   ),

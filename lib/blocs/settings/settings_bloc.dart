@@ -10,6 +10,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     on<ChangeThemeMode>(_onChangeThemeMode);
     on<ChangeTerms>(_onChangeTerms);
     on<Init>(_onInit);
+    on<ChangeLanguage>(_onChangeLanguage);
   }
 
   late final SharedPreferences? prefs;
@@ -36,6 +37,10 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     emit(state.copyWith(termsAccepted: event.termsAccepted));
   }
 
+  _onChangeLanguage(ChangeLanguage event, Emitter<SettingsState> emit) {
+    emit(state.copyWith(language: event.language));
+  }
+
   String getThemeMode() {
     switch (state.themeMode) {
       case 0:
@@ -46,6 +51,19 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         return 'Dark';
       default:
         return 'System';
+    }
+  }
+
+  int themeFromString(String theme) {
+    switch (theme) {
+      case 'System':
+        return 0;
+      case 'Light':
+        return 1;
+      case 'Dark':
+        return 2;
+      default:
+        return 0;
     }
   }
 }

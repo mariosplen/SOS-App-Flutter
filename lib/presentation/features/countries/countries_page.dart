@@ -1,16 +1,18 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sos/blocs/countries/countries_bloc.dart';
+import 'package:sos/gen/translations/locale_keys.g.dart';
 import 'package:sos/lib/presentation/features/text_styles.dart';
 import 'package:sos/models/country_model.dart';
 import 'package:sos/presentation/features/countries/widgets/country_tile.dart';
 import 'package:sos/presentation/features/countries/widgets/or_separator.dart';
 import 'package:sos/presentation/features/countries/widgets/search_field.dart';
 import 'package:sos/presentation/features/countries/widgets/use_location_button.dart';
+import 'package:sos/presentation/shared/custom_icon_button.dart';
 import 'package:sos/presentation/shared/loading_indicator.dart';
 import 'package:sos/theme/app_palette.dart';
-import 'package:sos/presentation/shared/custom_icon_button.dart';
 
 class CountriesPage extends StatelessWidget {
   const CountriesPage({super.key});
@@ -22,8 +24,10 @@ class CountriesPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: const Text('Select Country',
-              style: AppTextStyles.titleStyleBlack),
+          title: Text(
+            LocaleKeys.select_country.tr(),
+            style: AppTextStyles.titleStyleBlack,
+          ),
           actions: [
             CustomIconButton(
               onPressed: () => context.push('/settings'),
@@ -44,7 +48,10 @@ class CountriesPage extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
                   child: Column(
                     children: [
-                      SearchField(onSearch: (query) => bloc.add(Search(query))),
+                      SearchField(
+                        key: const Key('search_field'),
+                        onSearch: (query) => bloc.add(Search(query)),
+                      ),
                       const SizedBox(height: 16),
                       _buildExpandedListView(countries),
                       const OrSeparator(),

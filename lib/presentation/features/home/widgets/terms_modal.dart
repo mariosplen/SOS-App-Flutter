@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:sos/gen/translations/locale_keys.g.dart';
 
 class TermsModal extends StatelessWidget {
   const TermsModal({
@@ -14,17 +16,16 @@ class TermsModal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Terms and Conditions'),
+      title: Text(LocaleKeys.terms_and_conditions.tr()),
       content: RichText(
         text: TextSpan(
           children: [
-            const TextSpan(
-              text:
-                  'In order to use this application, you must read and accept the ',
-              style: TextStyle(color: Colors.black),
+            TextSpan(
+              text: LocaleKeys.accept_terms_prompt.tr(),
+              style: const TextStyle(color: Colors.black),
             ),
             TextSpan(
-              text: 'Terms & Conditions',
+              text: LocaleKeys.terms_and_conditions.tr(),
               style: const TextStyle(color: Colors.blue),
               recognizer: TapGestureRecognizer()..onTap = onTermsTap,
             ),
@@ -32,10 +33,7 @@ class TermsModal extends StatelessWidget {
         ),
       ),
       actions: [
-        TextButton(
-          onPressed: onAccept,
-          child: const Text('Accept'),
-        ),
+        TextButton(onPressed: onAccept, child: Text(LocaleKeys.accept.tr())),
       ],
     );
   }

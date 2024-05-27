@@ -21,7 +21,7 @@ class SettingsPage extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.transparent,
-            title: const Text('Settings'),
+            title: Text(LocaleKeys.settings.tr()),
           ),
           body: Padding(
             padding: const EdgeInsets.all(16.0),
@@ -29,7 +29,7 @@ class SettingsPage extends StatelessWidget {
               children: [
                 SettingTile(
                   icon: const Icon(Icons.color_lens),
-                  title: 'Theme',
+                  title: LocaleKeys.theme.tr(),
                   selectedValue: currentTheme,
                   onTap: () => context.push("/settings/theme"),
                 ),
@@ -41,12 +41,12 @@ class SettingsPage extends StatelessWidget {
                 ),
                 SettingTile(
                   icon: const Icon(Icons.privacy_tip),
-                  title: 'Terms and Conditions',
+                  title: LocaleKeys.terms_and_conditions.tr(),
                   onTap: () => context.push("/settings/terms"),
                 ),
                 SettingTile(
                   icon: const Icon(Icons.info),
-                  title: 'About',
+                  title: LocaleKeys.about.tr(),
                   onTap: () => context.push("/settings/about"),
                 ),
               ],

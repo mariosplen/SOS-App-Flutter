@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:sos/gen/assets.gen.dart';
 import 'package:sos/gen/fonts.gen.dart';
 import 'package:sos/presentation/shared/pressable.dart';
-import 'package:sos/presentation/shared/re_text.dart';
 
 class HomeButton extends StatelessWidget {
   const HomeButton({
@@ -34,9 +33,10 @@ class HomeButton extends StatelessWidget {
               scale: 0.5,
             ),
             Center(
-              child: ReText(
+              child: Text(
                 text,
                 style: _textStyle,
+                textAlign: TextAlign.center,
               ),
             ),
           ],

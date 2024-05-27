@@ -1,6 +1,7 @@
 import 'package:bloc_event_transformers/bloc_event_transformers.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sos/models/country_model.dart';
 import 'package:sos/services/services.dart';
 
@@ -8,6 +9,7 @@ part 'countries_event.dart';
 part 'countries_state.dart';
 
 class CountriesBloc extends Bloc<CountriesEvent, CountriesState> {
+  SharedPreferences? prefs;
   CountriesBloc() : super(const CountriesState()) {
     on<LoadCountries>(_onLoadCountries);
     on<Search>(
@@ -20,6 +22,7 @@ class CountriesBloc extends Bloc<CountriesEvent, CountriesState> {
     LoadCountries event,
     Emitter<CountriesState> emit,
   ) async {
+    prefs = await SharedPreferences.getInstance();
     final countries = await ApiService().getCountries();
     emit(state.copyWith(countries: countries));
   }
@@ -41,6 +44,13 @@ class CountriesBloc extends Bloc<CountriesEvent, CountriesState> {
               country.nativeName.toLowerCase().contains(state.query),
         )
         .toList();
+
+    //set the favorite countries
+
+    for (var country in countries) {
+      country.isFavorite = prefs?.getBool(country.isoCode) ?? false;
+    }
+
     // sort by liked and name
     countries.sort((a, b) {
       if (a.isFavorite && !b.isFavorite) {

@@ -1,24 +1,26 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sos/blocs/country_detail/country_detail_bloc.dart';
 import 'package:sos/gen/assets.gen.dart';
+import 'package:sos/gen/translations/locale_keys.g.dart';
+import 'package:sos/lib/presentation/features/text_styles.dart';
 import 'package:sos/models/country_model.dart';
 import 'package:sos/presentation/features/country_detail/widgets/dispatch_button.dart';
 import 'package:sos/presentation/features/country_detail/widgets/phone_button.dart';
 import 'package:sos/presentation/shared/alert_snackbar.dart';
-import 'package:sos/presentation/shared/loading_page.dart';
 import 'package:sos/presentation/shared/custom_icon_button.dart';
-import 'package:go_router/go_router.dart';
+import 'package:sos/presentation/shared/loading_page.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:sos/lib/presentation/features/text_styles.dart';
 
 class CountryDetailPage extends StatelessWidget {
   const CountryDetailPage({
     required this.country,
     required this.countries,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Country? country;
   final List<Country> countries;
@@ -65,14 +67,16 @@ class CountryDetailPage extends StatelessWidget {
               body: CustomScrollView(
                 slivers: [
                   SliverAppBar(
+                    centerTitle: false,
                     expandedHeight: 138.0,
                     iconTheme: const IconThemeData(color: Colors.white),
                     backgroundColor: Colors.transparent,
                     flexibleSpace: FlexibleSpaceBar(
+                      centerTitle: false,
                       background: Stack(
                         fit: StackFit.expand,
                         children: [
-                          Assets.lib.assets.images.countryDetail2.image(
+                          Assets.lib.assets.images.countryDetails2.image(
                             fit: BoxFit.cover,
                           ),
                           Container(
@@ -82,7 +86,7 @@ class CountryDetailPage extends StatelessWidget {
                       ),
                       titlePadding: const EdgeInsets.only(left: 50, bottom: 16),
                       title: Text(
-                        state.country?.name ?? 'Country',
+                        state.country?.name ?? LocaleKeys.country.tr(),
                         style: AppTextStyles.titleStyleWhite
                             .copyWith(fontSize: 16),
                       ),
@@ -101,7 +105,9 @@ class CountryDetailPage extends StatelessWidget {
                         _buildPhonesSection(state.country!),
                         Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 9.5, vertical: 10.0),
+                            horizontal: 9.5,
+                            vertical: 10.0,
+                          ),
                           child: ElevatedButton(
                             onPressed: () => context.push('/map'),
                             style: ButtonStyle(
@@ -122,8 +128,10 @@ class CountryDetailPage extends StatelessWidget {
                                 const Size(500.0, 50.0),
                               ),
                             ),
-                            child: const Text("SHOW LOCATION ON MAP",
-                                style: AppTextStyles.buttonStyle),
+                            child: Text(
+                              LocaleKeys.show_location_on_map.tr(),
+                              style: AppTextStyles.buttonStyle,
+                            ),
                           ),
                         ),
                         const SizedBox(height: 12),
@@ -171,7 +179,7 @@ class CountryDetailPage extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
               child: PhoneButton(
-                title: 'Police',
+                title: LocaleKeys.police.tr(),
                 color: const Color(0xFF5E9DE7),
                 numbers: [country.police.first], //display only the first number
                 onPressed: () =>
@@ -184,10 +192,10 @@ class CountryDetailPage extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
               child: PhoneButton(
-                title: 'Ambulance',
+                title: LocaleKeys.ambulance.tr(),
                 color: const Color(0xFF76cc57),
                 numbers: [
-                  country.ambulance.first
+                  country.ambulance.first,
                 ], //display only the first number
                 onPressed: () =>
                     _copyToClipboardAndOpenDialer(country.ambulance.first),
@@ -199,7 +207,7 @@ class CountryDetailPage extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
               child: PhoneButton(
-                title: 'Fire',
+                title: LocaleKeys.fire.tr(),
                 color: const Color(0xFFF0AC5D),
                 numbers: [country.fire.first], //display only the first number
                 onPressed: () =>
@@ -212,14 +220,14 @@ class CountryDetailPage extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
               child: PhoneButton(
-                title: 'Traffic',
+                title: LocaleKeys.traffic.tr(),
                 color: const Color(0xFF76cc57),
                 numbers: [
-                  country.traffic.first
+                  country.traffic.first,
                 ], //display only the first number
                 onPressed: () =>
                     _copyToClipboardAndOpenDialer(country.traffic.first),
-                icon: Assets.lib.assets.images.ambulance,
+                icon: Assets.lib.assets.images.traffic,
               ),
             ),
         ],

@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:sos/blocs/settings/settings_bloc.dart';
 import 'package:sos/gen/translations/codegen_loader.g.dart';
 import 'package:sos/models/theme_type.dart';
@@ -17,7 +18,7 @@ Future<void> main() async {
       supportedLocales: const [Locale('en'), Locale('el'), Locale('ru')],
       fallbackLocale: const Locale('en'),
       assetLoader: const CodegenLoader(),
-      child: MyApp(),
+      child: Phoenix(child: MyApp()),
     ),
   );
 }
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         builder: (context, state) {
           return state.isLoaded
               ? MaterialApp.router(
-                  title: 'SOS App',
+                  title: 'GlobalHelp',
                   debugShowCheckedModeBanner: false,
                   theme: getTheme(context, state.themeMode),
                   routerConfig: _router,

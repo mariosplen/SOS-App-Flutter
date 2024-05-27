@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:sos/gen/fonts.gen.dart';
+import 'package:sos/gen/translations/locale_keys.g.dart';
 import 'package:sos/models/country_model.dart';
 import 'package:sos/theme/app_palette.dart';
 
@@ -26,7 +28,7 @@ class UseLocationButton extends StatelessWidget {
         onPressed: onTap,
         style: _buttonStyle,
         label: Text(
-          'USE MY LOCATION',
+          LocaleKeys.use_my_location.tr(),
           style: _titleStyle,
         ),
       ),
