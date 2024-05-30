@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
@@ -12,15 +13,18 @@ import 'package:sos/theme/theme.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  runApp(
-    EasyLocalization(
-      path: 'lib/assets/translations',
-      supportedLocales: const [Locale('en'), Locale('el'), Locale('ru')],
-      fallbackLocale: const Locale('en'),
-      assetLoader: const CodegenLoader(),
-      child: Phoenix(child: MyApp()),
-    ),
-  );
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(
+      EasyLocalization(
+        path: 'lib/assets/translations',
+        supportedLocales: const [Locale('en'), Locale('el'), Locale('ru')],
+        fallbackLocale: const Locale('en'),
+        assetLoader: const CodegenLoader(),
+        child: Phoenix(child: MyApp()),
+      ),
+    );
+  });
 }
 
 class MyApp extends StatelessWidget {

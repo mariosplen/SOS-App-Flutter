@@ -2,7 +2,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
     <application
-        android:label="sos"
+        android:label="GlobalHelp"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
