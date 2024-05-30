@@ -221,7 +221,7 @@ class CountryDetailPage extends StatelessWidget {
                   const EdgeInsets.symmetric(vertical: 10.0, horizontal: 9.5),
               child: PhoneButton(
                 title: LocaleKeys.traffic.tr(),
-                color: const Color(0xFF76cc57),
+                color: Color.fromARGB(255, 224, 173, 210),
                 numbers: [
                   country.traffic.first,
                 ], //display only the first number
