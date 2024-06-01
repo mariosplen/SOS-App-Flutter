@@ -17,7 +17,7 @@ class AboutPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  "This app was developed by three university students as a project for the Mobile Development course in May 2024. The team members are: \n\nMarios Plenchidis \nNikoleta Teazi \nDimitra Emmanouilidou \n\nThis emergency app is intended for educational purposes only and should not be used in real emergency situations.",
+                  "This app was developed by three university students as a project for the Mobile Development course in May 2024. The team members are: \n\nMarios Plenchidis \nNikoletta Teazi \nDimitra Emmanouilidou \n\nThis emergency app is intended for educational purposes only and should not be used in real emergency situations.",
                 ),
               ],
             ),
