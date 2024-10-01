@@ -1,16 +1,20 @@
-# sos
+# GlobalHelp - Emergency Numbers and Location Sharing App
+GlobalHelp is a Flutter app that provides quick access to emergency numbers worldwide and allows users to easily share their location during emergencies. It supports both dark and light modes, and offers English and Greek language options.
 
-A new Flutter project.
+## Features
 
-## Getting Started
+* Emergency Numbers: Access emergency contacts globally via the Emergency Number API.
+* Location Sharing: Instantly share your location in emergencies.
+* Theme Support: Toggle between dark and light modes.
+* Localization: Available in English and Greek.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+<p align="center">
+   <img src="images/first.png">
+</p>
+ 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  
+<p align="center">
+  <img src="images/second.png">
+</p>
